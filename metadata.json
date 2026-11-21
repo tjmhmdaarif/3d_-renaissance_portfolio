@@ -1,0 +1,8 @@
+{
+  "name": "Aether & Fresco",
+  "description": "Interactive 16:9 Three.js 3D parallax exhibition through six Renaissance and classical mythology frescoes with a constant cloud backdrop and 30-second choreographed tour.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

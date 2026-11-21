@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-void: #12100e;
+    --bg-panel: rgba(20, 17, 14, 0.88);
+    --text-primary: #faf6ee;
+    --text-body: rgba(234, 227, 213, 0.88);
+    --text-muted: #c8beae;
+    --accent-gold: #e5c17b;
+    --accent-cyan: #9ed8eb;
+    --border-hairline: rgba(218, 185, 120, 0.28);
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--bg-void);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-mono-metrics {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Smoked-obsidian / umber translucent margin glass card over open sky */
+.sky-glass-card {
+  background: rgba(22, 18, 14, 0.56);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  border: 1px solid rgba(232, 196, 122, 0.34);
+  box-shadow:
+    0 14px 36px rgba(10, 8, 6, 0.42),
+    inset 0 1px 0 rgba(250, 240, 218, 0.14);
+}
+
+.sky-text-shadow {
+  text-shadow:
+    0 2px 16px rgba(12, 9, 6, 0.92),
+    0 1px 4px rgba(12, 9, 6, 0.95);
+}
+
+.swash-initial {
+  font-style: italic;
+  color: #e8c47a;
+  font-weight: 500;
+  padding-right: 0.03em;
+}
+
+/* Subtle museum parchment grain for Codex Folio drawer surface */
+.parchment-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+/* Tier 1 Chapter Plaque & Tier 2 Drawer Staggered Reveal */
+@keyframes folioFadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-folio-reveal {
+  animation: folioFadeSlideUp 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes celestialRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes celestialCounterRotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes celestialBreathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+.celestial-spin-slow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: celestialRotate 28s linear infinite;
+}
+
+.celestial-spin-reverse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: celestialCounterRotate 36s linear infinite;
+}
+
+.celestial-breathe {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: celestialBreathe 4.2s ease-in-out infinite;
+}
+
+/* Slim dark-gold scrollbar inside Tier 2 Folio Drawer */
+.folio-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.folio-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.folio-scroll::-webkit-scrollbar-thumb {
+  background: rgba(218, 185, 120, 0.28);
+  border-radius: 9999px;
+}
+
+.folio-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(229, 193, 123, 0.52);
+}
+
+/* Custom museum-grade timeline scrubber */
+.exhibition-scrubber {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 9999px;
+  background: rgba(235, 226, 208, 0.18);
+  outline: none;
+  cursor: pointer;
+}
+
+.exhibition-scrubber::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #e5c17b;
+  border: 1.5px solid #faf6ee;
+  box-shadow: 0 0 8px rgba(229, 193, 123, 0.6);
+  transition: transform 0.15s ease;
+}
+
+.exhibition-scrubber::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.exhibition-scrubber::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #e5c17b;
+  border: 1.5px solid #faf6ee;
+  box-shadow: 0 0 8px rgba(229, 193, 123, 0.6);
+  transition: transform 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-folio-reveal,
+  .celestial-spin-slow,
+  .celestial-spin-reverse,
+  .celestial-breathe {
+    animation: none !important;
+  }
+}
